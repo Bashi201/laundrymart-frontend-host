@@ -2,7 +2,11 @@
 
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:8080' });
+// Use Railway private networking - same project, super fast & secure
+const API = axios.create({
+  baseURL: 'http://laundrymart-backend-host.railway.internal',
+  // No port needed - Railway routes internally to your app's port
+});
 
 // Automatically add JWT token to every request
 API.interceptors.request.use((req) => {
